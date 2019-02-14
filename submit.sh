@@ -1,4 +1,5 @@
 #!/bin/bash -l
+#HW4 WXT
 
 # Use the staclass partition. Only applies if you are in STA141C
 #SBATCH --partition=staclass
