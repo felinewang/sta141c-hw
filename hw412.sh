@@ -4,4 +4,4 @@ unzip -p ${DATAFILE} |
     head  > test.txt
 
 #get the length of the longest line in the file 
-wc  --max-line-length  test.txt > maxchars.txt
+wc  --max-line-length < test.txt > maxchars.txt
