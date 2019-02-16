@@ -1,3 +1,8 @@
+DATAFILE="/group/staclassgrp/transaction.zip"
+#get the first row, which is all the colums
+unzip -p ${DATAFILE} | 
+    head -n 1 > columns.txt
+    
 #get the entire file
 unzip -p ${DATAFILE} > data.txt
 
