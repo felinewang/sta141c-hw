@@ -3,7 +3,7 @@ DATAFILE="/group/staclassgrp/transaction.zip"
 unzip -p ${DATAFILE} | 
     head -n 1 > columns.txt|
     #seperate the columns to different lines 
-    tr ',' '\n' columns.txt > cols.txt|
+    tr ',' '\n' < columns.txt > cols.txt|
     #get the columns' integer positions and store it as requested in HW
     nl cols.txt> colname_index.txt
 
