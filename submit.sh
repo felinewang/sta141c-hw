@@ -13,4 +13,4 @@
 # #SBATCH --mail-type=END
 # #SBATCH --mail-user=
 
-bash hw4.sh
+bash hw412.sh

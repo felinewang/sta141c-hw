@@ -9,6 +9,6 @@ tr ',' '\n' < columns.txt > cols.txt
 #get the columns' integer positions and store it as requested in HW
 nl cols.txt > colname_index.txt
 
-
- colname_index.txt | tail -n 3
+#to see the last three column names and integer positions
+cat colname_index.txt | tail -n 3
 
