@@ -1,7 +1,9 @@
-DATAFILE="/group/staclassgrp/transaction.zip"
-#get the first row, which is all the colums
-unzip -p ${DATAFILE} | 
-    head  > test.txt
+AGNENCYID = grep -n "funding_agency_id" colname_index.txt|
+cut -d ":" -f 1 #get the column number of the funding agency ids
 
-#get the length of the longest line in the file 
-wc  --max-line-length < test.txt > maxchars.txt
+cut -d "," -f AGNENCYID data.txt| #get the funding agency id column
+sed 1d| #remove the first row, which is the column name
+sort|#sort the id values so the command "uniq" can get the ids only appearing once
+uniq --unique|#get unique ids
+awk "NF" > funding_agency_set.txt #remove empty rows and store the final id numbers
+
