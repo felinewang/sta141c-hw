@@ -1,16 +1,12 @@
 #!/bin/bash -l
-#HW4 WXT
 
-# Use the staclass partition. Only applies if you are in STA141C
+#use staclass partition
 #SBATCH --partition=staclass
 
 # Use two cores to get some pipeline parallelism
 #SBATCH --cpus-per-task=2
 
-# Give the job a name
+# Name the job 
 #SBATCH --job-name=hw4
 
-# #SBATCH --mail-type=END
-# #SBATCH --mail-user=
-
-bash hw412.sh
+bash hw5.sh
