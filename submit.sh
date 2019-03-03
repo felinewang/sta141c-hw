@@ -7,6 +7,6 @@
 #SBATCH --cpus-per-task=2
 
 # Name the job 
-#SBATCH --job-name=hw4
+#SBATCH --job-name=hw5.r
 
 Rscript hw5.r
