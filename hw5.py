@@ -1,6 +1,6 @@
 import csv
-input = "C:/Users/DELL/Desktop/unique_transactions.txt"
-output = "D:/STA141C/first_digit.txt"
+input = "unique_transactions.txt"
+output = "first_digit.txt"
 infile = open(input)
 outfile = open(output,"w")
 
