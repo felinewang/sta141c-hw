@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/bin/sh
 
 #use staclass partition
 #SBATCH --partition=staclass
