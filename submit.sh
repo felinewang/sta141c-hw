@@ -9,4 +9,4 @@
 # Name the job 
 #SBATCH --job-name=hw4
 
-bash hw5.sh
+Rscript hw5.r
