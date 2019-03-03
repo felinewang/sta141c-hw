@@ -1,4 +1,4 @@
-#!/bin/bash -l
+#!/bin/bash 
 
 #use staclass partition
 #SBATCH --partition=staclass
