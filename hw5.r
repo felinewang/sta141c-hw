@@ -18,6 +18,7 @@ lines = readLines(file_path) # read all the lines from the unique transactions
   transactions = transactions[,id_col:obligation_col] #get only recipient id and total obligation
   colnames(transactions) = c("recipient_id","first_digit") #assign column names
   
-  table(transactions$recipient_id,transactions$first_digit) #get contigency table
-  
-  
+  #get the result as a contingency table and store it to output
+  result = table(transactions$recipient_id,transactions$first_digit) 
+  write.table(result, output, sep = ",", quote = FALSE)
+
