@@ -1,6 +1,8 @@
 import csv
-input = "unique_transactions.txt"
-output = "first_digit.txt"
+import numpy
+import pandas as pd
+inpath = "unique_transactions.txt"
+outpath= "first_digit.txt"
 infile = open(input)
 outfile = open(output,"w")
 
@@ -9,12 +11,12 @@ def main():
     reader = csv.reader(infile)
     for row in reader:
         try:
-            row[-1] = row[-1][0]
+            row[2] = row[2][0]
         except IndexError:
-            # Python: Better to ask forgiveness than permission
-            # Alternative: Look before you leap
             pass
-        writer.writerow(row)
+        if (not pd.isnull(row[2])) and row[2] != 0:
+            row = row[0:]
+            writer.writerow(row)
 
 if __name__ == "__main__":
     main()
