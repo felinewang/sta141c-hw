@@ -3,8 +3,8 @@ import numpy
 import pandas as pd
 inpath = "unique_transactions.txt"
 outpath= "first_digit.txt"
-infile = open(input)
-outfile = open(output,"w")
+infile = open(inpath)
+outfile = open(outpath,"w")
 
 
 writer = csv.writer(outfile)
