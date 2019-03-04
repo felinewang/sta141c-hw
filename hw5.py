@@ -2,7 +2,7 @@ import csv
 import numpy
 import pandas as pd
 inpath = "unique_transactions.txt"
-outpath= "first_digit.txt"
+outpath= "digits.txt"
 infile = open(inpath)
 outfile = open(outpath,"w")
 
@@ -15,6 +15,6 @@ for row in reader:
     except IndexError:
         pass
     if (not pd.isnull(row[2])) and row[2] != 0:
-        row = row[0:]
+        row = row[1:]
         writer.writerow(row)
 
