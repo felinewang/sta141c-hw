@@ -1,23 +1,20 @@
-file_path = "unique_transactions.txt"
-output = "first_digit.txt"
+file_path = "first_digit.txt"
+result_file = "Dkl.txt"
+
+lines = readLines(file_path) #read in the file produced in step two
+transactions = read.table(text = lines,sep = ",")[2:3]
+
+transactions = na.omit(transactions) #ignore the cases starts with -
+transactions = transactions[-which(transactions$V3==0),] #ignore the cases starts with 0
+cont_table = table(transactions$V2,transactions$V3) #get the contigency table of the count of 1-9 for each agency
 
 
-lines = readLines(file_path) # read all the lines from the unique transactions
+meaningful = cont_table[which(rowSums(cont_table)>100,),] #exclude recipients that have fewer than 100 transactions
 
-#read in the transactions as table
-transactions = read.table(text = lines, sep = ",")
-  
- 
-obligation_col = 3 #total obligation isin  column 3
- 
-#replace the obligation column with the first digit of the total obligation
-transactions[,obligation_col] = substring(chunk[,lastcol],1L,1L)
-  
-  
-id_col = 2 #recipient id is in column 2
-transactions = transactions[,id_col:obligation_col] #get only recipient id and total obligation
-colnames(transactions) = c("recipient_id","first_digit") #assign column names
-  
 
-write.table(transactions, output, sep = ",", quote = FALSE)
 
+P = prop.table(meaningful)
+Q = prop.table(colSums(meaningful))
+Dkl = rowSums(P*log(P/Q))
+
+write.table(Dkl, result, sep = ",", quote = FALSE)
