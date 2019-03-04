@@ -1,5 +1,6 @@
 file_path = "first_digit.txt"
-result_file = "Dkl.txt"
+DKl_file = "Dkl.txt"
+Q_file = "Q.txt"
 
 lines = readLines(file_path) #read in the file produced in step two
 transactions = read.table(text = lines,sep = ",")[2:3]
@@ -17,4 +18,5 @@ P = prop.table(meaningful)
 Q = prop.table(colSums(meaningful))
 Dkl = rowSums(P*log(P/Q))
 
-write.table(Dkl, result, sep = ",", quote = FALSE)
+write.table(Q,Q_file,sep = ",",quote = FALSE)
+write.table(Dkl, DKl_file, sep = ",", quote = FALSE)
