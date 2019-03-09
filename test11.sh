@@ -1,0 +1,15 @@
+RECIPIENT_COUNTRY_CODE=34  
+ACTION_DATE=3
+FEDERAL_ACTION_OBLIGATION=12
+BUSINESS_CATEGORIES=61
+RECIPIEN_NAME=56
+NASICS_DESCRIPTION=42
+POP_STATECODE=29
+
+cat transaction100.csv|
+cut --delimiter="," --fields=29,${RECIPIEN_NAME},${NASICS_DESCRIPTION}|
+	grep .|
+	awk 'NF >= 3'|
+	sort |
+	uniq --unique>transactions_ly.txt 
+
