@@ -1,7 +1,5 @@
-DATAFILE="/sta141c-hw4/transaction100.zip"
 
-
-unzip -p ${DATAFILE}|
+cat transaction100.csv|
 cut --delimiter="," --fields=34,3,12,61,56,42,29| 
 sed 1d| #remove first rows
 grep -Ev $'^\t|\t\t|\t$'|
